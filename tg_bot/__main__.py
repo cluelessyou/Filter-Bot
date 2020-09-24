@@ -18,24 +18,12 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-*Hello* {},*My Name is* *{}*! 
-
-```You You Can Add any kind of Filters to This Bot!```
-
-*Channel:© @DX_Botz*
-
-/help for more details..
+No one gonna help you!😎
 """
 
 HELP_STRINGS = """
-Hello! my name *{}*.
-
-*Main Available Commands* are Below:
-
-All of the following commands  / can  be used...
-
-And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nഈ പറഞ്ഞിരിക്കുന്ന commandകൾ എല്ലാം  / അല്ലെങ്കിൽ ! വെച്ച് ഉപയോഗിക്കാവുന്നതാണ്...\n")
+Sorry you can't add me to your groups!😒
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nHere is some of my commands\n")
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 It took lots of work for [my creator](t.me/sonoflars) to get me to where I am now, and every donation helps \
@@ -131,7 +119,7 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="😬ADD YOUR GROUP😬", url="t.me/{}?startgroup=true".format(bot.username))]]))
+                parse_mode=ParseMode.MARKDOWN,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Source code", url="https://github.com/DarkAngelTG/Filter-Bot")]]))
     else:
         update.effective_message.reply_text("")
 
